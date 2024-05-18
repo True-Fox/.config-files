@@ -1,5 +1,17 @@
 1#
 
+#Audio
+XF86AudioRaiseVolume
+	amixer set Master 5%+
+XF86AudioLowerVolume
+	amixer set Master 5%-
+XF86AudioMute
+	amixer set Master {mute, unmute}
+
+#Brightness Control
+XF86MonBrightness {up,down}  
+  brightnessctl set 355{+,-} 
+
 # terminal emulator
 super + Return
 	alacritty
@@ -9,6 +21,11 @@ super + d
 	rofi -show drun
 super + shift + f
 	rofi -show filebrowser
+
+# Screenshot
+@Print
+	scrot -s --line mode=edge ~/screenshots/%b%d::%H%M%S.png
+
 
 # make sxhkd reload its configuration files:
 super + Escape
